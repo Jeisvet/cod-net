@@ -7,6 +7,32 @@
  <h1>Códigos Temporales Netflix</h1>
  <div id="codigos"></div>
  <script>
+  function procesarCorreosElectronicos() {
+  var threads = GmailApp.getInboxThreads();
+  var codigosTemporales = [];
+  
+  threads.forEach(function(thread) {
+    var messages = thread.getMessages();
+    messages.forEach(function(message) {
+      var subject = message.getSubject();
+      if (subject.includes("Código temporal de Netflix")) {
+        var body = message.getBody();
+        var codigoTemporal = extraerCodigoTemporal(body);
+        codigosTemporales.push(codigoTemporal);
+      }
+    });
+  });
+  
+  enviarCodigosTemporales(codigosTemporales);
+}
+
+function extraerCodigoTemporal(body) {
+  // Agrega el código para extraer el código temporal del cuerpo del correo electrónico
+}
+
+function enviarCodigosTemporales(codigosTemporales) {
+  // Agrega el código para enviar los códigos temporales a tu sitio web
+}
  // Agrega el código JavaScript para mostrar los códigos temporales
  </script>
 </body>
